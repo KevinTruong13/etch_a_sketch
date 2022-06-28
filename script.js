@@ -1,6 +1,7 @@
 const SKETCHPAD = document.querySelector('.sketchpad');
 
-function createGrid(size) {
+function createGrid(size = 16) {
+    clearGrid();
     accomodateGrid(size);
 
     for (let i = 0; i < size; i++) {
@@ -22,3 +23,5 @@ function accomodateGrid(cols) {
 function clearGrid() {
     SKETCHPAD.innerHTML = '';
 }
+
+createGrid();
