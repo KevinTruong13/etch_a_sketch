@@ -18,3 +18,7 @@ function addSquare() {
 function accomodateGrid(cols) {
     SKETCHPAD.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
 }
+
+function clearGrid() {
+    SKETCHPAD.innerHTML = '';
+}
