@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: firebrick;
     height: 100vh;
@@ -10,4 +14,13 @@ body {
     background-color: white;
     height: 80vh;
     width: 80vw;
+    display: grid;
+}
+
+.sketchpad div {
+    border: black .2rem solid;
+}
+
+.sketch-square {
+
 }
