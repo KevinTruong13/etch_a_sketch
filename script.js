@@ -24,4 +24,5 @@ function clearGrid() {
     SKETCHPAD.innerHTML = '';
 }
 
+// Creates the default 16x16 grid
 createGrid();
