@@ -25,22 +25,24 @@ function clearGrid() {
     SKETCHPAD.innerHTML = '';
 }
 
-function setDivsColorable() {
+function setDivsColorable(e) {
     const sketchSquares = document.querySelectorAll('.sketchpad>div');
-    sketchSquares.forEach(elem => elem.addEventListener('mouseenter', dragAndColor));
+    sketchSquares.forEach(elem => elem.addEventListener('mouseenter', colorSquare));
 }
 
 function setDivsNotColorable() {
     const sketchSquares = document.querySelectorAll('.sketchpad>div');
-    sketchSquares.forEach(elem => elem.removeEventListener('mouseenter', dragAndColor));
+    sketchSquares.forEach(elem => elem.removeEventListener('mouseenter', colorSquare));
 }
 
-function dragAndColor() {
-    console.log('color');
+function colorSquare(e) {
+    e.target.style.backgroundColor = 'black';
 }
 
 // Creates the default 16x16 grid
 createGrid();
 
+// Colors grid when mouse held down until mouse click is released
 SKETCHPAD.addEventListener('mousedown', setDivsColorable);
 SKETCHPAD.addEventListener('mouseup', setDivsNotColorable);
+SKETCHPAD.addEventListener('mousedown', colorSquare);   // Color square that was initially clicked
