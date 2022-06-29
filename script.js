@@ -36,7 +36,7 @@ function setDivsNotColorable() {
 }
 
 function colorSquare(e) {
-    e.target.style.backgroundColor = 'black';
+    e.target.classList.add('colored');
 }
 
 // Creates the default 16x16 grid

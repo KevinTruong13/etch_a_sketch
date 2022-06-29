@@ -8,6 +8,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .sketchpad {
@@ -19,6 +20,10 @@ body {
     background-color: black;
 }
 
-.sketchpad div {
+.sketchpad>div {
     background-color: white;
+}
+
+.sketchpad>.colored {
+    background-color: black;
 }
