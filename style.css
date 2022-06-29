@@ -5,16 +5,16 @@
 body {
     background-color: firebrick;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 10vh 80vh 10vh;
 }
 
 .sketchpad {
     min-height: 80vh;
-    min-width: 85vw;
+    width: 85vw;
     display: grid;
+    margin: 0 auto 0;
     /* Gives inner border for squares inside sketchpad */
     gap: 1px;
     background-color: black;
@@ -26,4 +26,18 @@ body {
 
 .sketchpad>.colored {
     background-color: black;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.knob {
+    background-color: white;
+    border-radius: 50%;
+    min-height: 7vh;
+    min-width: 7vh;
+    margin: 1.5vh 3vh;
 }
