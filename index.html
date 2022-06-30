@@ -4,17 +4,21 @@
         <meta charset="utf-8">
         <title>Etch-A-Sketch</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
     </head>
 
     <body>
-        <div class="top"></div>
+        <div class="top">
+            <h1>Click and Drag to Start!</h1>
+        </div>
         <main class="sketchpad"></main>
         <div class="bottom">
             <div class="knob"></div>
             <div class="buttons">
-                <button>Change Grid Size</button>
-                <button>Change Color</button>
-                <button>Reset Sketch</button>
+                <button id="change-grid">Change Grid Size</button>
+                <button id="reset">Reset Sketch</button>
             </div>
             <div class="knob"></div>
         </div>

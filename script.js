@@ -1,4 +1,6 @@
 const SKETCHPAD = document.querySelector('.sketchpad');
+const CHANGE_GRID_BUTTON = document.querySelector('#change-grid');
+const RESET_BUTTON = document.querySelector('#reset');
 
 function createGrid(size = 16) {
     clearGrid();
@@ -39,10 +41,22 @@ function colorSquare(e) {
     e.target.classList.add('colored');
 }
 
+function clearSketch() {
+    const sketchSquares = document.querySelectorAll('.sketchpad>div');
+    sketchSquares.forEach(square => square.classList.remove('colored'));
+}
+
 // Creates the default 16x16 grid
 createGrid();
 
 // Colors grid when mouse held down until mouse click is released
 SKETCHPAD.addEventListener('mousedown', setDivsColorable);
 SKETCHPAD.addEventListener('mouseup', setDivsNotColorable);
-SKETCHPAD.addEventListener('mousedown', colorSquare);   // Color square that was initially clicked
+
+// Color square that was initially clicked
+SKETCHPAD.addEventListener('mousedown', colorSquare);   
+
+CHANGE_GRID_BUTTON.addEventListener('click', () => {
+    createGrid(prompt('Set size of grid? (Clears sketch)'));
+});
+RESET_BUTTON.addEventListener('click', clearSketch);

@@ -10,6 +10,15 @@ body {
     grid-template-rows: 10vh 80vh 10vh;
 }
 
+.top {
+    color: lemonchiffon;
+    font-family: 'Tangerine', cursive;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .sketchpad {
     min-height: 80vh;
     width: 85vw;
@@ -39,5 +48,5 @@ body {
     border-radius: 50%;
     min-height: 7vh;
     min-width: 7vh;
-    margin: 1.5vh 3vh;
+    margin: 1.5vh 2.5vh;
 }
