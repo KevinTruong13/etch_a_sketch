@@ -2,6 +2,7 @@ const SKETCHPAD = document.querySelector('.sketchpad');
 const CHANGE_GRID_BUTTON = document.querySelector('#change-grid');
 const RESET_BUTTON = document.querySelector('#reset');
 const COLOR_MODE_BUTTON = document.querySelector('#set-colors');
+const COLOR_PICKER = document.querySelector('#color-picker');
 
 function createGrid(size = 16) {
     clearGrid();
@@ -47,7 +48,7 @@ function colorSquare(e) {
             style.backgroundColor = getDarkerColor(style.backgroundColor);
         }
     } else {
-        style.backgroundColor = 'black';
+        style.backgroundColor = color;
     }
 }
 
@@ -82,7 +83,6 @@ function clearSketch() {
 }
 
 function toggleRainbowColors() {
-    clearSketch();
     COLOR_MODE_BUTTON.textContent = (rainbowColors) ? 'Rainbow off' : 'Rainbow on';
     rainbowColors = !rainbowColors;
 }
@@ -105,3 +105,6 @@ RESET_BUTTON.addEventListener('click', clearSketch);
 // Variable controls whether a random colors are used while sketching or black and white. Toggled with a button.
 let rainbowColors = false;
 COLOR_MODE_BUTTON.addEventListener('click', toggleRainbowColors);
+
+let color = COLOR_PICKER.value;
+COLOR_PICKER.addEventListener('input', () => color = COLOR_PICKER.value);
