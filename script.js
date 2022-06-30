@@ -3,6 +3,21 @@ const CHANGE_GRID_BUTTON = document.querySelector('#change-grid');
 const RESET_BUTTON = document.querySelector('#reset');
 const COLOR_MODE_BUTTON = document.querySelector('#set-colors');
 const COLOR_PICKER = document.querySelector('#color-picker');
+const MAX_GRID_SIZE = 100;
+
+function promptGrid() {
+    let size = prompt('Set size of grid? (Max: 100)');
+
+    while (isNaN(size) || size <= 0 || size > MAX_GRID_SIZE) {
+        if (size === null) {
+            return;
+        }
+
+        size = prompt('Error, invalid value. Please input a value between 1-100');
+    }
+
+    createGrid(size);
+}
 
 function createGrid(size = 16) {
     clearGrid();
@@ -97,9 +112,7 @@ SKETCHPAD.addEventListener('mouseup', setDivsNotColorable);
 // Color square that was initially clicked
 SKETCHPAD.addEventListener('mousedown', colorSquare);   
 
-CHANGE_GRID_BUTTON.addEventListener('click', () => {
-    createGrid(prompt('Set size of grid? (Clears sketch)'));
-});
+CHANGE_GRID_BUTTON.addEventListener('click', promptGrid);
 RESET_BUTTON.addEventListener('click', clearSketch);
 
 // Variable controls whether a random colors are used while sketching or black and white. Toggled with a button.
