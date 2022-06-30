@@ -40,10 +40,14 @@ function setDivsNotColorable() {
 
 function colorSquare(e) {
     const style = e.target.style;
-    if (!style.backgroundColor) {
-        style.backgroundColor = getRandomColor();
+    if (rainbowColors) {
+        if (!style.backgroundColor) {
+            style.backgroundColor = getRandomColor();
+        } else {
+            style.backgroundColor = getDarkerColor(style.backgroundColor);
+        }
     } else {
-        style.backgroundColor = getDarkerColor(style.backgroundColor);
+        style.backgroundColor = 'black';
     }
 }
 
@@ -78,7 +82,8 @@ function clearSketch() {
 }
 
 function toggleRainbowColors() {
-    COLOR_MODE_BUTTON.textContent = (rainbowColors) ? 'Black and White' : 'Rainbow Colors';
+    clearSketch();
+    COLOR_MODE_BUTTON.textContent = (rainbowColors) ? 'Rainbow off' : 'Rainbow on';
     rainbowColors = !rainbowColors;
 }
 
@@ -98,5 +103,5 @@ CHANGE_GRID_BUTTON.addEventListener('click', () => {
 RESET_BUTTON.addEventListener('click', clearSketch);
 
 // Variable controls whether a random colors are used while sketching or black and white. Toggled with a button.
-let rainbowColors = true;
+let rainbowColors = false;
 COLOR_MODE_BUTTON.addEventListener('click', toggleRainbowColors);
