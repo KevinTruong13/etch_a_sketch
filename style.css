@@ -13,7 +13,7 @@ body {
 
 .top {
     font-family: 'Tangerine', cursive;
-    font-size: 1.5rem;
+    font-size: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,9 +42,14 @@ body {
 }
 
 .bottom {
+    font-size: 1.4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+button {
+    font-size: 1rem;
 }
 
 .bottom-center {
