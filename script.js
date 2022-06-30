@@ -43,7 +43,7 @@ function colorSquare(e) {
     if (!style.backgroundColor) {
         style.backgroundColor = getRandomColor();
     } else {
-        console.log(style.backgroundColor);
+        style.backgroundColor = getDarkerColor(style.backgroundColor);
     }
 }
 
@@ -51,8 +51,12 @@ function getRandomColor() {
     return getRGBString(randInt(255), randInt(255), randInt(255));
 }
 
+// Decreasing all RGB values by 10% with every pass to darken. 
+// Could also lower opacity with every pass to get complete black within 10 passes.
 function getDarkerColor(originalRGB) {
     rgbValues = getRGBValues(originalRGB);
+    rgbValues = rgbValues.map(value => Math.floor(value * .9));     // Decreases all RGB values by 10%
+    return getRGBString(...rgbValues);
 }
 
 function getRGBString(red, green, blue) {
