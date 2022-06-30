@@ -39,7 +39,33 @@ function setDivsNotColorable() {
 }
 
 function colorSquare(e) {
-    e.target.style.backgroundColor = 'black';
+    const style = e.target.style;
+    if (!style.backgroundColor) {
+        style.backgroundColor = getRandomColor();
+    } else {
+        console.log(style.backgroundColor);
+    }
+}
+
+function getRandomColor() {
+    return getRGBString(randInt(255), randInt(255), randInt(255));
+}
+
+function getDarkerColor(originalRGB) {
+    rgbValues = getRGBValues(originalRGB);
+}
+
+function getRGBString(red, green, blue) {
+    return `rgb(${red}, ${green}, ${blue})`
+}
+
+function randInt(max, min = 0) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function getRGBValues(rgb) {
+    let rgbValues = rgb.replace(/[^\d,]/g, '').split(',');
+    return rgbValues.map(Number);
 }
 
 function clearSketch() {
