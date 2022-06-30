@@ -21,7 +21,7 @@ body {
 
 .sketchpad {
     min-height: 80vh;
-    width: 60vw;
+    width: 80vh;
     display: grid;
     margin: 0 auto 0;
     /* Gives inner border for squares inside sketchpad */
