@@ -3,13 +3,14 @@ const CHANGE_GRID_BUTTON = document.querySelector('#change-grid');
 const RESET_BUTTON = document.querySelector('#reset');
 const COLOR_MODE_BUTTON = document.querySelector('#set-colors');
 const COLOR_PICKER = document.querySelector('#color-picker');
+const GRIDLINE_TOGGLE = document.querySelector('#gridline-toggle');
 const MAX_GRID_SIZE = 100;
 
 function promptGrid() {
     let size = prompt('Set size of grid? (Max: 100)');
 
     while (isNaN(size) || size <= 0 || size > MAX_GRID_SIZE) {
-        if (size === null) {
+        if (size === null) {    // Null is returned from prompt when cancelling out
             return;
         }
 
@@ -121,3 +122,5 @@ COLOR_MODE_BUTTON.addEventListener('click', toggleRainbowColors);
 
 let color = COLOR_PICKER.value;
 COLOR_PICKER.addEventListener('input', () => color = COLOR_PICKER.value);
+
+GRIDLINE_TOGGLE.addEventListener('click', () => SKETCHPAD.classList.toggle('sketchpad-gridlines'));
