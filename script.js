@@ -1,6 +1,7 @@
 const SKETCHPAD = document.querySelector('.sketchpad');
 const CHANGE_GRID_BUTTON = document.querySelector('#change-grid');
 const RESET_BUTTON = document.querySelector('#reset');
+const COLOR_MODE_BUTTON = document.querySelector('#set-colors');
 
 function createGrid(size = 16) {
     clearGrid();
@@ -38,12 +39,17 @@ function setDivsNotColorable() {
 }
 
 function colorSquare(e) {
-    e.target.classList.add('colored');
+    e.target.style.backgroundColor = 'black';
 }
 
 function clearSketch() {
     const sketchSquares = document.querySelectorAll('.sketchpad>div');
-    sketchSquares.forEach(square => square.classList.remove('colored'));
+    sketchSquares.forEach(square => square.style.removeProperty('background-color'));
+}
+
+function toggleRainbowColors() {
+    COLOR_MODE_BUTTON.textContent = (rainbowColors) ? 'Black and White' : 'Rainbow Colors';
+    rainbowColors = !rainbowColors;
 }
 
 // Creates the default 16x16 grid
@@ -60,3 +66,7 @@ CHANGE_GRID_BUTTON.addEventListener('click', () => {
     createGrid(prompt('Set size of grid? (Clears sketch)'));
 });
 RESET_BUTTON.addEventListener('click', clearSketch);
+
+// Variable controls whether a random colors are used while sketching or black and white. Toggled with a button.
+let rainbowColors = true;
+COLOR_MODE_BUTTON.addEventListener('click', toggleRainbowColors);
